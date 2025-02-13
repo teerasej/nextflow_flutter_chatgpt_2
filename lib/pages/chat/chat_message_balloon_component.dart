@@ -12,25 +12,13 @@ class ChatMessageBalloon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-    Alignment alignment;
-    Color? color;
-
-    if (isSender) {
-      alignment = Alignment.centerRight;
-      color = Colors.blue[200];
-    } else {
-      alignment = Alignment.centerLeft;
-      color = Colors.green[200];
-    }
-
     return Align(
-      alignment: alignment,
+      alignment: isSender ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: color,
+          color: isSender ? Colors.blue[200] : Colors.green[200],
           borderRadius: BorderRadius.circular(10),
         ),
         child: Text(
