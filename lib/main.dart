@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:nextflow_chatgpt/pages/chat/chat_page.dart';
 
 void main() {
@@ -10,13 +11,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Nextflow ChatGPT',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: ChatPage()
+      getPages: [
+        GetPage(name: '/', page: () => ChatPage()),
+      ],
     );
   }
 }
