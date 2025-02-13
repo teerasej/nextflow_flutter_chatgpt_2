@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:nextflow_chatgpt/controllers/chat_controller.dart';
 
 class ChatInput extends StatelessWidget {
-  final TextEditingController _controller = TextEditingController();
-
-  void _handleSend(BuildContext context) {
-    String inputValue = _controller.text;
-    // Handle send button press with inputValue
-    print(inputValue); // For demonstration purposes
-    _controller.clear(); // Clear the input field after sending
-  }
+  final ChatController chatController = Get.put(ChatController());
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +14,7 @@ class ChatInput extends StatelessWidget {
         children: [
           Expanded(
             child: TextField(
-              controller: _controller,
+              controller: chatController.textController,
               decoration: InputDecoration(
                 hintText: 'Type a message',
               ),
@@ -27,7 +22,7 @@ class ChatInput extends StatelessWidget {
           ),
           IconButton(
             icon: Icon(Icons.send),
-            onPressed: () => _handleSend(context),
+            onPressed: () => chatController.handleSend(),
           ),
         ],
       ),
