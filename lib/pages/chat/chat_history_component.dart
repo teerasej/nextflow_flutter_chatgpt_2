@@ -13,15 +13,35 @@ class ChatHistory extends StatelessWidget {
     return Container(
       color: Colors.grey[200],
       child: Obx(() {
-        return ListView.builder(
-          itemCount: chatController.messages.length,
-          itemBuilder: (context, index) {
-            final message = chatController.messages[index];
-            return ChatMessageBalloon(
-              message: message.message,
-              isSender: message.isSender,
-            );
-          },
+        return Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: chatController.messages.length,
+                itemBuilder: (context, index) {
+                  final message = chatController.messages[index];
+                  return ChatMessageBalloon(
+                    message: message.message,
+                    isSender: message.isSender,
+                  );
+                },
+              ),
+            ),
+            if (chatController.isTyping.value)
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Thinking...',
+                    style: TextStyle(
+                      fontStyle: FontStyle.italic,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ),
+              ),
+          ],
         );
       }),
     );
