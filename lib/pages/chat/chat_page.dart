@@ -17,7 +17,9 @@ class ChatPage extends StatelessWidget {
           Expanded(
             child: ChatHistory(),
           ),
-          ChatInput(),
+          SafeArea(
+            child: ChatInput(),
+          ),
         ],
       ),
     );
