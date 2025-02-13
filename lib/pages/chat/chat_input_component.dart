@@ -3,8 +3,7 @@ import 'package:get/get.dart';
 import 'package:nextflow_chatgpt/controllers/chat_controller.dart';
 
 class ChatInput extends StatelessWidget {
-  final ChatController chatController = Get.put(ChatController());
-
+  final ChatController chatController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Container(

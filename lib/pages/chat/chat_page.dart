@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:nextflow_chatgpt/controllers/chat_controller.dart';
 
 import 'chat_history_component.dart';
 import 'chat_input_component.dart';
 
 class ChatPage extends StatelessWidget {
-  const ChatPage({super.key});
+   ChatPage({super.key});
+
+  final ChatController chatController = Get.put(ChatController());
 
   @override
   Widget build(BuildContext context) {
