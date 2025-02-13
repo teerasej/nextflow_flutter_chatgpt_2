@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nextflow_chatgpt/pages/chat/chat_page.dart';
-import 'package:nextflow_chatgpt/pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
