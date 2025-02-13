@@ -14,7 +14,9 @@ class ChatPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          ChatHistory(),
+          Expanded(
+            child: ChatHistory(),
+          ),
           ChatInput(),
         ],
       ),
