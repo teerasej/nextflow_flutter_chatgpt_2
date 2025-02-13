@@ -11,6 +11,9 @@ class ChatController extends GetxController {
         message: "I need some information about your services.", isSender: true)
   ].obs;
 
+  var isTyping = false.obs; 
+
+
   final Dio _dio = Dio();
   final String _azureOpenAiEndpoint = '';
   final String _apiKey = '';
@@ -20,7 +23,10 @@ class ChatController extends GetxController {
     if (inputValue.isNotEmpty) {
       messages.add(ChatMessage(message: inputValue, isSender: true));
       textController.clear();
+
+      isTyping.value = true;
       await sendMessageToAzureOpenAi(inputValue);
+      isTyping.value = false;
     }
   }
 
