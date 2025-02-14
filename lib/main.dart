@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nextflow_chatgpt/pages/chat/chat_page.dart';
-import 'package:nextflow_chatgpt/pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +15,14 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: ChatPage()
+      home: Scaffold(
+        body: Center(
+          child: Text(
+            "Let's start the Nextflow chatGPT",
+            style: TextStyle(fontSize: 24),
+          ),
+        ),
+      ),
     );
   }
 }
